@@ -19,13 +19,13 @@ export const ModeSelector: React.FC<ModeSelectorProps> = ({ mode, onModeChange }
     {
       id: 'summarize' as ProcessingMode,
       label: 'Summarize',
-      description: '2-3 paragraphs max.',
+      description: '2-3 Paragraphs Max.',
       icon: FileText
     },
     {
       id: 'shorten' as ProcessingMode,
       label: 'Make This Shorter',
-      description: 'Compact version.',
+      description: 'Compact Version.',
       icon: Minimize2
     }
   ];
