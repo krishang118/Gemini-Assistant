@@ -37,10 +37,7 @@ export const ChatSidebar: React.FC<ChatSidebarProps> = ({
   return (
     <Sidebar className="border-r border-border">
       <SidebarHeader className="p-4 border-b border-border">
-        <div className="flex items-center gap-2 mb-4">
-          <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-            <MessageSquare className="w-4 h-4 text-primary-foreground" />
-          </div>
+        <div className="mb-4">
           <h1 className="font-semibold text-foreground">Gemini Assistant</h1>
         </div>
         
@@ -113,7 +110,7 @@ export const ChatSidebar: React.FC<ChatSidebarProps> = ({
             
             {chats.length === 0 && (
               <p className="text-xs text-muted-foreground text-center py-4">
-                No conversations yet. Create your first chat!
+                No conversations yet. Create your first chat.
               </p>
             )}
           </div>

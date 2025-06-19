@@ -126,7 +126,7 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
           </div>
           <div>
             <h2 className="text-xl font-semibold text-foreground">Welcome to Gemini Assistant</h2>
-            <p className="text-muted-foreground">Create a new chat to get started</p>
+            <p className="text-muted-foreground">Create a new chat to get started.</p>
           </div>
         </div>
       </div>
@@ -164,7 +164,7 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
           <Textarea
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="Paste your text here..."
+            placeholder="Type here..."
             className="min-h-[80px] resize-none"
             onKeyDown={(e) => {
               if (e.key === 'Enter' && !e.shiftKey) {

@@ -13,26 +13,26 @@ export const ModeSelector: React.FC<ModeSelectorProps> = ({ mode, onModeChange }
     {
       id: 'explain' as ProcessingMode,
       label: 'What Does This Mean?',
-      description: 'Explain like I\'m 5',
+      description: 'Explain like I\'m 5.',
       icon: HelpCircle
     },
     {
       id: 'summarize' as ProcessingMode,
       label: 'Summarize',
-      description: '2-3 paragraphs max',
+      description: '2-3 paragraphs max.',
       icon: FileText
     },
     {
       id: 'shorten' as ProcessingMode,
       label: 'Make This Shorter',
-      description: 'Compact version',
+      description: 'Compact version.',
       icon: Minimize2
     }
   ];
 
   return (
     <div className="space-y-2">
-      <h3 className="text-sm font-medium text-foreground">Processing Mode</h3>
+      <h3 className="text-sm font-medium text-foreground">Assistant Mode</h3>
       <div className="flex flex-wrap gap-2">
         {modes.map((modeOption) => {
           const Icon = modeOption.icon;
