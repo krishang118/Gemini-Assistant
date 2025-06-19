@@ -16,7 +16,7 @@ A modern, multi-mode AI chat assistant web app powered by Google Gemini API. Bui
 - Node.js (v18+ recommended)
 - npm or yarn
 
-## Tech Used
+### Tech Used
 
 - React
 - TypeScript
@@ -36,7 +36,7 @@ A modern, multi-mode AI chat assistant web app powered by Google Gemini API. Bui
      ```bash
      yarn install
      ```
-3. **Get your Gemini API key:**
+3. **Get Gemini API key:**
    - You must obtain your own Gemini API key from [Google AI Studio](https://aistudio.google.com/app/apikey) before using the web app.
    - The app will prompt you to enter this key in the sidebar on first use.
 4. **Start the server:**
