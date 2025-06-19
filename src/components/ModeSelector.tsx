@@ -2,12 +2,10 @@ import React from 'react';
 import { HelpCircle, FileText, Minimize2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ProcessingMode } from './GeminiAssistant';
-
 interface ModeSelectorProps {
   mode: ProcessingMode;
   onModeChange: (mode: ProcessingMode) => void;
 }
-
 export const ModeSelector: React.FC<ModeSelectorProps> = ({ mode, onModeChange }) => {
   const modes = [
     {
@@ -29,15 +27,13 @@ export const ModeSelector: React.FC<ModeSelectorProps> = ({ mode, onModeChange }
       icon: Minimize2
     }
   ];
-
   return (
     <div className="space-y-2">
       <h3 className="text-sm font-medium text-foreground">Assistant Mode</h3>
       <div className="flex flex-wrap gap-2">
         {modes.map((modeOption) => {
           const Icon = modeOption.icon;
-          const isActive = mode === modeOption.id;
-          
+          const isActive = mode === modeOption.id;        
           return (
             <Button
               key={modeOption.id}

@@ -1,14 +1,11 @@
 import React from 'react';
 import { User, Bot } from 'lucide-react';
 import { Message } from './GeminiAssistant';
-
 interface MessageBubbleProps {
   message: Message;
 }
-
 export const MessageBubble: React.FC<MessageBubbleProps> = ({ message }) => {
   const isUser = message.type === 'user';
-
   return (
     <div className={`flex gap-3 ${isUser ? 'justify-end' : 'justify-start'}`}>
       {!isUser && (
@@ -16,7 +13,6 @@ export const MessageBubble: React.FC<MessageBubbleProps> = ({ message }) => {
           <Bot className="w-4 h-4 text-primary-foreground" />
         </div>
       )}
-      
       <div className={`max-w-3xl ${isUser ? 'order-first' : ''}`}>
         <div
           className={`rounded-lg p-4 ${
@@ -36,7 +32,6 @@ export const MessageBubble: React.FC<MessageBubbleProps> = ({ message }) => {
           })}
         </div>
       </div>
-
       {isUser && (
         <div className="w-8 h-8 bg-secondary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
           <User className="w-4 h-4 text-secondary-foreground" />

@@ -6,13 +6,11 @@ import { useToast } from '@/hooks/use-toast';
 import { Chat, Message, ProcessingMode } from './GeminiAssistant';
 import { ModeSelector } from './ModeSelector';
 import { MessageBubble } from './MessageBubble';
-
 interface ChatInterfaceProps {
   chat: Chat | undefined;
   onAddMessage: (chatId: string, message: Message) => void;
   apiKey: string;
 }
-
 export const ChatInterface: React.FC<ChatInterfaceProps> = ({
   chat,
   onAddMessage,
@@ -23,11 +21,9 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
-
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [chat?.messages]);
-
   const getModePrompt = (mode: ProcessingMode, text: string) => {
     switch (mode) {
       case 'explain':
@@ -38,12 +34,10 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
         return `Please make the following text more compact and shorter while preserving the key information:\n\n${text}`;
     }
   };
-
   const callGeminiAPI = async (prompt: string): Promise<string> => {
     if (!apiKey) {
       throw new Error('Please enter your Gemini API key first');
     }
-
     const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
       method: 'POST',
       headers: {
@@ -63,48 +57,37 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
         }
       })
     });
-
     if (!response.ok) {
       const errorData = await response.json().catch(() => null);
       throw new Error(errorData?.error?.message || `API Error: ${response.status}`);
     }
-
     const data = await response.json();
-    
     if (!data.candidates || !data.candidates[0] || !data.candidates[0].content) {
       throw new Error('Invalid response from Gemini API');
     }
-
     return data.candidates[0].content.parts[0].text;
   };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
     if (!input.trim() || !chat) return;
-
     const userMessage: Message = {
       id: Date.now().toString(),
       type: 'user',
       content: input.trim(),
       timestamp: new Date()
     };
-
     onAddMessage(chat.id, userMessage);
     setInput('');
     setIsLoading(true);
-
     try {
       const prompt = getModePrompt(mode, input.trim());
       const response = await callGeminiAPI(prompt);
-
       const assistantMessage: Message = {
         id: (Date.now() + 1).toString(),
         type: 'assistant',
         content: response,
         timestamp: new Date()
       };
-
       onAddMessage(chat.id, assistantMessage);
     } catch (error) {
       toast({
@@ -116,7 +99,6 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
       setIsLoading(false);
     }
   };
-
   if (!chat) {
     return (
       <div className="flex-1 flex items-center justify-center">
@@ -132,15 +114,11 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
       </div>
     );
   }
-
   return (
     <div className="flex-1 flex flex-col h-screen">
-      {/* Header */}
       <div className="border-b border-border p-4">
         <ModeSelector mode={mode} onModeChange={setMode} />
       </div>
-
-      {/* Messages */}
       <div className="flex-1 overflow-y-auto p-4 space-y-4">
         {chat.messages.map((message) => (
           <MessageBubble key={message.id} message={message} />
@@ -157,8 +135,6 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
         )}
         <div ref={messagesEndRef} />
       </div>
-
-      {/* Input */}
       <div className="border-t border-border p-4">
         <form onSubmit={handleSubmit} className="flex gap-2">
           <Textarea

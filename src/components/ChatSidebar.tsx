@@ -12,7 +12,6 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Chat } from './GeminiAssistant';
-
 interface ChatSidebarProps {
   chats: Chat[];
   activeChat: string | null;
@@ -22,7 +21,6 @@ interface ChatSidebarProps {
   apiKey: string;
   onApiKeyChange: (key: string) => void;
 }
-
 export const ChatSidebar: React.FC<ChatSidebarProps> = ({
   chats,
   activeChat,
@@ -33,23 +31,19 @@ export const ChatSidebar: React.FC<ChatSidebarProps> = ({
   onApiKeyChange
 }) => {
   const [showApiKey, setShowApiKey] = useState(false);
-
   return (
     <Sidebar className="border-r border-border">
       <SidebarHeader className="p-4 border-b border-border">
         <div className="mb-4">
           <h1 className="font-semibold text-foreground">Gemini Assistant</h1>
         </div>
-        
         <Button onClick={onNewChat} className="w-full" size="sm">
           <Plus className="w-4 h-4 mr-2" />
           New Chat
         </Button>
       </SidebarHeader>
-      
       <SidebarContent className="p-4">
         <div className="space-y-4">
-          {/* API Key Section */}
           <div className="space-y-2">
             <Label htmlFor="api-key" className="text-xs text-muted-foreground flex items-center gap-1">
               <Key className="w-3 h-3" />
@@ -59,7 +53,7 @@ export const ChatSidebar: React.FC<ChatSidebarProps> = ({
               <Input
                 id="api-key"
                 type={showApiKey ? "text" : "password"}
-                placeholder="Enter your Gemini API key..."
+                placeholder="Enter your Gemini API key"
                 value={apiKey}
                 onChange={(e) => onApiKeyChange(e.target.value)}
                 className="pr-10 text-xs"
@@ -79,8 +73,6 @@ export const ChatSidebar: React.FC<ChatSidebarProps> = ({
               </Button>
             </div>
           </div>
-
-          {/* Chat List */}
           <div className="space-y-1">
             <Label className="text-xs text-muted-foreground">Conversations</Label>
             <SidebarMenu>
@@ -107,7 +99,6 @@ export const ChatSidebar: React.FC<ChatSidebarProps> = ({
                 </SidebarMenuItem>
               ))}
             </SidebarMenu>
-            
             {chats.length === 0 && (
               <p className="text-xs text-muted-foreground text-center py-4">
                 No conversations yet. Create your first chat.

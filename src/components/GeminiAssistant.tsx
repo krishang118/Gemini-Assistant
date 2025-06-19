@@ -2,33 +2,26 @@ import React, { useState, useEffect } from 'react';
 import { SidebarProvider } from '@/components/ui/sidebar';
 import { ChatSidebar } from './ChatSidebar';
 import { ChatInterface } from './ChatInterface';
-
 export interface Chat {
   id: string;
   title: string;
   messages: Message[];
   createdAt: Date;
 }
-
 export interface Message {
   id: string;
   type: 'user' | 'assistant';
   content: string;
   timestamp: Date;
 }
-
 export type ProcessingMode = 'explain' | 'summarize' | 'shorten';
-
 export const GeminiAssistant: React.FC = () => {
   const [chats, setChats] = useState<Chat[]>([]);
   const [activeChat, setActiveChat] = useState<string | null>(null);
   const [apiKey, setApiKey] = useState<string>('');
-
   useEffect(() => {
-    // Load data from localStorage
     const savedChats = localStorage.getItem('gemini-chats');
-    const savedApiKey = localStorage.getItem('gemini-api-key');
-    
+    const savedApiKey = localStorage.getItem('gemini-api-key');    
     if (savedChats) {
       const parsedChats = JSON.parse(savedChats).map((chat: any) => ({
         ...chat,
@@ -40,22 +33,16 @@ export const GeminiAssistant: React.FC = () => {
       }));
       setChats(parsedChats);
     }
-    
     if (savedApiKey) {
       setApiKey(savedApiKey);
     }
   }, []);
-
   useEffect(() => {
-    // Save chats to localStorage
     localStorage.setItem('gemini-chats', JSON.stringify(chats));
   }, [chats]);
-
   useEffect(() => {
-    // Save API key to localStorage
     localStorage.setItem('gemini-api-key', apiKey);
   }, [apiKey]);
-
   const createNewChat = () => {
     const newChat: Chat = {
       id: Date.now().toString(),
@@ -66,20 +53,17 @@ export const GeminiAssistant: React.FC = () => {
     setChats(prev => [newChat, ...prev]);
     setActiveChat(newChat.id);
   };
-
   const deleteChat = (chatId: string) => {
     setChats(prev => prev.filter(chat => chat.id !== chatId));
     if (activeChat === chatId) {
       setActiveChat(null);
     }
   };
-
   const updateChat = (chatId: string, updatedChat: Partial<Chat>) => {
     setChats(prev => prev.map(chat => 
       chat.id === chatId ? { ...chat, ...updatedChat } : chat
     ));
   };
-
   const addMessage = (chatId: string, message: Message) => {
     setChats(prev => prev.map(chat => 
       chat.id === chatId 
@@ -91,9 +75,7 @@ export const GeminiAssistant: React.FC = () => {
         : chat
     ));
   };
-
   const currentChat = chats.find(chat => chat.id === activeChat);
-
   return (
     <SidebarProvider>
       <div className="min-h-screen flex w-full bg-background">
