@@ -36,7 +36,7 @@ npm install  # or yarn install
 ```bash
 npm run dev  # or yarn dev
 ```   
-5. Open in your browser:
+5. Open in your browser and run the web app:
 ```
 http://localhost:8080
 ```
