@@ -25,21 +25,21 @@ A modern, multi-mode AI chat assistant web app powered by Google Gemini API. Bui
 ## How to Run
 
 1. Clone this repository on your local machine.
-2. Install the dependencies:   
-     ```bash
-     npm install  # or yarn install
-     ```
-4. Get the Gemini API key:
+2. Install the dependencies:
+```bash
+npm install  # or yarn install
+```
+3. Get the Gemini API key:
    - You must obtain your own Gemini API key from [Google AI Studio](https://aistudio.google.com/app/apikey) before using the web app.
    - The app will prompt you to enter this key in the sidebar on first use.
-5. Start the server:
-   ```bash
-   npm run dev  # or yarn dev
-   ```
-6. Open in your browser:
-   ```
-   http://localhost:8080
-   ```
+4. Start the server:
+```bash
+npm run dev  # or yarn dev
+```   
+5. Open in your browser:
+```
+http://localhost:8080
+```
 
 - Your Gemini API key and chat history are stored only in your browser (localStorage).
 - No data is sent to any server except directly to the Gemini API.
