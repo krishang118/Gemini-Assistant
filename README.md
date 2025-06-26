@@ -9,14 +9,14 @@ A modern, multi-mode AI chat assistant web app powered by Google Gemini API. Bui
 - Persistent Conversations: All chats and your API key are saved in the browser's local storage.
 - Modern and Responsive Interface: Manage multiple conversations, start new chats, and delete old ones, with ease.
 
-## Getting Started
+## Setting Up
 
 ### Prerequisites
 
 - Node.js (v18+ recommended)
 - npm or yarn
 
-### Tech Used
+### Technologies Used
 
 - React
 - TypeScript
@@ -24,7 +24,7 @@ A modern, multi-mode AI chat assistant web app powered by Google Gemini API. Bui
 - Tailwind CSS
 - shadcn/ui and Radix UI
 
-### How to Run
+## How to Run
 
 1. Clone this repository on your local machine.
 2. Install the dependencies:
