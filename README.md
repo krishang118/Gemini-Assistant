@@ -9,14 +9,12 @@ A modern, multi-mode AI chat assistant web app powered by Google Gemini API. Bui
 - Persistent Conversations: All chats and your API key are saved in the browser's local storage.
 - Modern and Responsive Interface: Manage multiple conversations, start new chats, and delete old ones, with ease.
 
-## Setting Up
-
-### Prerequisites
+## Prerequisites
 
 - Node.js (v18+ recommended)
 - npm or yarn
 
-### Technologies Used
+## Technologies Used
 
 - React
 - TypeScript
@@ -27,25 +25,16 @@ A modern, multi-mode AI chat assistant web app powered by Google Gemini API. Bui
 ## How to Run
 
 1. Clone this repository on your local machine.
-2. Install the dependencies:
-   - Using npm:
-   
+2. Install the dependencies:   
      ```bash
-     npm install
+     npm install  # or yarn install
      ```
-   - Or using yarn:
-     
-     ```bash
-     yarn install
-     ```
-4. Get Gemini API key:
+4. Get the Gemini API key:
    - You must obtain your own Gemini API key from [Google AI Studio](https://aistudio.google.com/app/apikey) before using the web app.
    - The app will prompt you to enter this key in the sidebar on first use.
 5. Start the server:
    ```bash
-   npm run dev
-   # or
-   yarn dev
+   npm run dev  # or yarn dev
    ```
 6. Open in your browser:
    ```
