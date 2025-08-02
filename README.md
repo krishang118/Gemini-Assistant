@@ -1,5 +1,5 @@
 # Gemini Assistant
-
+ 
 A modern, multi-mode AI chat assistant web app powered by Google Gemini API. Built with React, TypeScript and Vite, the multi-mode Gemini Assistant provides a responsive and seamless chat experience for explaining, summarizing, or shortening text using the Gemini LLM.
 
 ## Features
